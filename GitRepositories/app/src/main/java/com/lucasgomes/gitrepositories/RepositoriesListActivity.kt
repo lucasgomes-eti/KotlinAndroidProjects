@@ -9,7 +9,7 @@ import rx.schedulers.Schedulers
 
 class RepositoriesListActivity : AppCompatActivity() {
 
-    val listRepositories : ListView by lazy { findViewById(R.id.listViewRepositories) as ListView }
+    val listRepositories : RecyclerView by lazy { findViewById(R.id.listViewRepositories) as ListView }
 
     lateinit var repositoryAdapter : ArrayAdapter<String>
     var repositories = mutableListOf<String>()
