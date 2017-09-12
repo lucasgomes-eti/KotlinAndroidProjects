@@ -11,11 +11,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import android.app.ProgressDialog
-import android.util.Log
-import android.view.KeyEvent
 import android.view.View
-import android.view.inputmethod.EditorInfo
-import android.widget.EditText
+import android.widget.ProgressBar
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +24,8 @@ class MainActivity : AppCompatActivity() {
     val localidade: TextView by lazy { findViewById(R.id.txt_localidade) as TextView }
     val uf: TextView by lazy { findViewById(R.id.txt_uf) as TextView }
     val ibge: TextView by lazy { findViewById(R.id.txt_ibge) as TextView }
-    val buscarButton: Button by lazy { findViewById(R.id.btn_buscar) as Button }
+    val buscarButton : Button by lazy { findViewById(R.id.btn_buscar) as Button }
+    val mProgressBar : ProgressBar by lazy { findViewById(R.id.progressBar) as ProgressBar }
 
     lateinit var mProgressDialog: ProgressDialog
 
@@ -40,7 +38,8 @@ class MainActivity : AppCompatActivity() {
         mProgressDialog.setCancelable(false)
 
         buscarButton.setOnClickListener {
-            mProgressDialog.show()
+            mProgressBar.visibility = View.VISIBLE
+            //mProgressDialog.show()
             getEndereco(cep.text.toString())
         }
     }
@@ -63,7 +62,8 @@ class MainActivity : AppCompatActivity() {
                             e.printStackTrace()
                         },
                         onComplete = {
-                            mProgressDialog.dismiss()
+                            //mProgressDialog.dismiss()
+                            mProgressBar.visibility = View.GONE
                         }
                 )
     }
