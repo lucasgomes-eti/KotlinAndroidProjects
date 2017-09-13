@@ -17,13 +17,13 @@ import android.widget.ProgressBar
 
 class MainActivity : AppCompatActivity() {
 
-    val cep: TextView by lazy { findViewById(R.id.txt_cep) as TextView }
-    val logradouro: TextView by lazy { findViewById(R.id.txt_logradouro) as TextView }
-    val complemento: TextView by lazy { findViewById(R.id.txt_complemento) as TextView }
-    val bairro: TextView by lazy { findViewById(R.id.txt_bairro) as TextView }
-    val localidade: TextView by lazy { findViewById(R.id.txt_localidade) as TextView }
-    val uf: TextView by lazy { findViewById(R.id.txt_uf) as TextView }
-    val ibge: TextView by lazy { findViewById(R.id.txt_ibge) as TextView }
+    val cep : TextView by lazy { findViewById(R.id.txt_cep) as TextView }
+    val logradouro : TextView by lazy { findViewById(R.id.txt_logradouro) as TextView }
+    val complemento : TextView by lazy { findViewById(R.id.txt_complemento) as TextView }
+    val bairro : TextView by lazy { findViewById(R.id.txt_bairro) as TextView }
+    val localidade : TextView by lazy { findViewById(R.id.txt_localidade) as TextView }
+    val uf : TextView by lazy { findViewById(R.id.txt_uf) as TextView }
+    val ibge : TextView by lazy { findViewById(R.id.txt_ibge) as TextView }
     val buscarButton : Button by lazy { findViewById(R.id.btn_buscar) as Button }
     val mProgressBar : ProgressBar by lazy { findViewById(R.id.progressBar) as ProgressBar }
 
