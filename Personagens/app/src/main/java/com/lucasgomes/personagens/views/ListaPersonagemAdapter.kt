@@ -19,9 +19,10 @@ class ListaPersonagemAdapter(private val dataSet: ArrayList<Personagem>, interna
 
     // View lookup cache
     private class ViewHolder {
-        internal var txtName: TextView? = null
-        //internal var txtRealName: TextView? = null
-        internal var info: ImageView? = null
+        internal var txtId : TextView? = null
+        internal var info : ImageView? = null
+        internal var txtName : TextView? = null
+        internal var txtRealName : TextView? = null
     }
 
 
@@ -37,23 +38,25 @@ class ListaPersonagemAdapter(private val dataSet: ArrayList<Personagem>, interna
             viewHolder = ViewHolder()
             val inflater = LayoutInflater.from(context)
             convertView = inflater.inflate(R.layout.item_personagem, parent, false)
+            viewHolder.txtId = convertView.findViewById(R.id.text_id)
             viewHolder.info = convertView!!.findViewById(R.id.item_info)
-            viewHolder.txtName = convertView!!.findViewById(R.id.name)
-            //viewHolder.txtRealName = convertView!!.findViewById(R.id.real_name)
+            viewHolder.txtName = convertView.findViewById(R.id.text_name)
+            viewHolder.txtRealName = convertView!!.findViewById(R.id.text_real_name)
 
-            convertView!!.setTag(viewHolder)
+            convertView.tag = viewHolder
         } else {
-            viewHolder = convertView!!.getTag() as ViewHolder
+            viewHolder = convertView.tag as ViewHolder
         }
 
         Picasso.with(context)
                 .load(dataModel.FotoUrl)
-                .placeholder(android.R.drawable.ic_dialog_info)
-                .error(android.R.drawable.stat_notify_error)
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)
                 .into(viewHolder.info)
 
         viewHolder.txtName!!.text = dataModel!!.Nome
-        //viewHolder.txtRealName!!.text = dataModel.NomeReal
+        viewHolder.txtId!!.text = dataModel.ID.toString()
+        viewHolder.txtRealName!!.text = dataModel.NomeReal
 
         return convertView
     }

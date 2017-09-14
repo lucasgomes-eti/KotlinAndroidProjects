@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="8dp">
 
 
@@ -12,22 +12,60 @@
         android:id="@+id/item_info"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:src="@android:drawable/ic_dialog_info"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@android:drawable/ic_dialog_info" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/text_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Title"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/black"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
         android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/item_info"
         android:layout_toRightOf="@+id/item_info"
-        android:layout_toEndOf="@+id/item_info" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/item_info"
+        app:layout_constraintLeft_toRightOf="@+id/item_info"
+        app:layout_constraintTop_toTopOf="@+id/item_info"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Title" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/text_name"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/text_name"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/text_real_name"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_name"
+        tools:text="Detail"
+        app:layout_constraintLeft_toRightOf="@+id/item_info"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <TextView
+        android:id="@+id/text_real_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#212121"
+        app:layout_constraintBottom_toBottomOf="@+id/item_info"
+        app:layout_constraintLeft_toRightOf="@+id/item_info"
+        app:layout_constraintTop_toTopOf="@+id/item_info"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="SubTitle" />
+
+</android.support.constraint.ConstraintLayout>

@@ -35,9 +35,10 @@ class RestService{
         restService = retrofit.create<RestDefinition>(RestDefinition::class.java)
     }
 
-    fun loadPersonagens() : Observable<Personagem> {
+    fun loadPersonagens() : Observable<Personagem>? {
         return restService.getListPersonagens()
                 .flatMap { pResult -> Observable.fromIterable(pResult.toList()) }
-                .map { p ->  Personagem(p.FotoUrl, p.Nome) }
+                .map { p ->  Personagem(p.ID, p.FotoUrl, p.Nome, p.Descricao, p.NomeReal, p.Genero, p.Altura, p.Peso, p.Poderes,
+                        p.Habilidades, p.Afiliacoes, p.Origem) }
     }
 }

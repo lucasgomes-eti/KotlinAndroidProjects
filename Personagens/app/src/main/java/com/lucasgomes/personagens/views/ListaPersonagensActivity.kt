@@ -29,9 +29,9 @@ class ListaPersonagensActivity : AppCompatActivity() {
 
         val api = RestService()
         api.loadPersonagens()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeBy(
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribeBy(
                         onNext = {
                             personagem -> personagensList.add(personagem)
                             mProgressBar.visibility = View.VISIBLE
