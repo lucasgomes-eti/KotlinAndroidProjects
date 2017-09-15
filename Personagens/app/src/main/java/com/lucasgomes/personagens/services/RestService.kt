@@ -41,4 +41,8 @@ class RestService{
                 .map { p ->  Personagem(p.ID, p.FotoUrl, p.Nome, p.Descricao, p.NomeReal, p.Genero, p.Altura, p.Peso, p.Poderes,
                         p.Habilidades, p.Afiliacoes, p.Origem) }
     }
+
+    fun loadPersonagem(id : Int) : Observable<Personagem>? {
+        return restService.getPersonagem(id)
+    }
 }

@@ -18,6 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".views.PersonagemDetalheActivity"
+            android:parentActivityName=".views.ListaPersonagensActivity" />
+        <activity android:name=".views.CadastroPersonagemActivity"
+            android:parentActivityName=".views.ListaPersonagensActivity"></activity>
     </application>
 
 </manifest>
