@@ -14,8 +14,7 @@ import com.frosquivel.magicalcamera.MagicalCamera
 import android.os.AsyncTask
 import android.app.Activity
 import android.R.attr.data
-
-
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -56,6 +55,7 @@ class MainActivity : AppCompatActivity() {
             //you should to call the method ever, for obtain the bitmap photo (= magicalCamera.getPhoto())
             magicalCamera.resultPhoto(requestCode, resultCode, data)
             imageViewPhoto.setImageBitmap(magicalCamera.photo)
+            magicalCamera.savePhotoInMemoryDevice(magicalCamera.getPhoto(),"IMG_${Random().nextInt()}","Camera Demo", MagicalCamera.JPEG, true)
         }
     }
 }
